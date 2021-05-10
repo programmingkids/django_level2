@@ -14,4 +14,11 @@ urlpatterns = [
     path('player/update2/<int:pk>', views.PlayerUpdateView.as_view(), name="player_update2"),
     path('player/delete1/<int:pk>', views.player_delete1, name="player_delete1"),
     path('player/delete2/<int:pk>', views.PlayerDeleteView.as_view(), name="player_delete2"),
+    
+    # enemy
+    path('enemy/list', views.EnemyListView.as_view(), name="enemy_list"),
+    path('enemy/detail/<int:pk>', views.EnemyDetailView.as_view(), name="enemy_detail"),
+    path('enemy/create', views.EnemyCreateView.as_view(), name="enemy_create"),
+    path('enemy/update/<int:pk>', views.EnemyUpdateView.as_view(), name="enemy_update"),
+    path('enemy/delete/<int:pk>', views.EnemyDeleteView.as_view(), name="enemy_delete"),
 ]

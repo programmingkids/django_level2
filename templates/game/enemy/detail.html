@@ -11,7 +11,7 @@
     </div>
 
     <div class="mb-3">
-        <a href="{% url 'game:player_list1'%}" class="btn btn-primary">一覧に戻る</a>
+        <a href="{% url 'game:enemy_list'%}" class="btn btn-primary">一覧に戻る</a>
     </div>
     
     <table class="table table-bordered table-hover">
@@ -28,16 +28,12 @@
             <td>{{object.hp}}</td>
         </tr>
         <tr>
-            <th>MP</th>
-            <td>{{object.mp}}</td>
+            <th>タイプ</th>
+            <td>{{object.get_type_display}}</td>
         </tr>
         <tr>
-            <th>職業</th>
-            <td>{{object.get_job_display}}</td>
-        </tr>
-        <tr>
-            <th>誕生日</th>
-            <td>{{object.birthday|date:'Y年m月d日'}}</td>
+            <th>攻撃力</th>
+            <td>{{object.attack}}</td>
         </tr>
     </table>
 </div>
