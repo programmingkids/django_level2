@@ -19,6 +19,7 @@
                 <th>MP</th>
                 <th>職業</th>
                 <th>誕生日</th>
+                <th>詳細</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,9 @@
                 <td>{{o.mp}}</td>
                 <td>{{o.get_job_display}}</td>
                 <td>{{o.birthday|date:'Y年m月d日'}}</td>
+                <td>
+                    <a href="{% url 'game:detail1' o.id %}">詳細</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

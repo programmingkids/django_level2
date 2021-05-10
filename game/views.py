@@ -20,14 +20,14 @@ def list1(request) :
         "message" : "プレイヤーを一覧で表示します",
         "object_list" : object_list
     }
-    return render(request, "game/work01.html", context)
+    return render(request, "game/list1.html", context)
 
 
 class PlayerListView(ListView):
     # モデル名
     model = Player
     # テンプレートファイル名のパス
-    template_name = "game/work01.html"
+    template_name = "game/list2.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -35,4 +35,28 @@ class PlayerListView(ListView):
         context["message"] = "プレイヤー一覧を表示します"
         return context
 
+
+def detail1(request, pk) :
+    object = Player.objects.get(id=pk)
+    
+    context = {
+        "title" : "プレイヤー詳細表示",
+        "message" : "1件のプレイヤーを表示します",
+        "object" : object
+    }
+    return render(request, "game/detail1.html", context)
+
+
+class PlayerDetailView(DetailView) :
+    # モデル名
+    model = Player
+    # テンプレートファイル名の指定
+    template_name = "game/detail2.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "プレイヤー詳細表示"
+        context["message"] = "1件のプレイヤーを表示します"
+        return context
+    
 

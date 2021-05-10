@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title%}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4 p-2 bg-primary text-white">{{ title }}</h2>
+    
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+    </div>
+
+    <div class="mb-3">
+        <a href="{% url 'game:list2'%}" class="btn btn-primary">一覧に戻る</a>
+    </div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>ID</th>
+            <td>{{object.id}}</td>
+        </tr>
+        <tr>
+            <th>名前</th>
+            <td>{{object.name}}</td>
+        </tr>
+        <tr>
+            <th>HP</th>
+            <td>{{object.hp}}</td>
+        </tr>
+        <tr>
+            <th>MP</th>
+            <td>{{object.mp}}</td>
+        </tr>
+        <tr>
+            <th>職業い</th>
+            <td>{{object.get_job_display}}</td>
+        </tr>
+        <tr>
+            <th>誕生日</th>
+            <td>{{object.birthday|date:'Y年m月d日'}}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
