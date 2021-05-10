@@ -13,6 +13,7 @@
      <div class="mb-3">
         <a href="{% url 'game:list1' %}" class="btn btn-primary">一覧に戻る</a>
     </div>
+    
     <form action="{% url 'game:create1' %}" method="post" novalidate>
         {% csrf_token %}
         {{form.as_p}}
