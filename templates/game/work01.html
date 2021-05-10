@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title%}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4 p-2 bg-primary text-white">{{ title }}</h2>
+    
+    <div class="alert alert-danger" role="alert">
+        {{message}}
+    </div>
+    
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>HP</th>
+                <th>MP</th>
+                <th>職業</th>
+                <th>誕生日</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in object_list %}
+            <tr>
+                <td>{{o.id}}</td>
+                <td>{{o.name}}</td>
+                <td>{{o.hp}}</td>
+                <td>{{o.mp}}</td>
+                <td>{{o.get_job_display}}</td>
+                <td>{{o.birthday|date:'Y年m月d日'}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
