@@ -14,7 +14,7 @@ from .forms import PlayerForm
 
 
 # Create your views here.
-def list1(request) :
+def player_list1(request) :
     # 全レコードを取得
     object_list = Player.objects.all()
     
@@ -39,7 +39,7 @@ class PlayerListView(ListView):
         return context
 
 
-def detail1(request, pk) :
+def player_detail1(request, pk) :
     # 指定されたレコードを取得
     object = Player.objects.get(id=pk)
     
@@ -64,7 +64,7 @@ class PlayerDetailView(DetailView) :
         return context
     
 
-def create1(request) :
+def player_create1(request) :
     context = {
         "title" : "プレイヤー新規作成",
         "message" : "プレイヤーを作成します",
@@ -81,7 +81,7 @@ def create1(request) :
             # エラーがない場合、新規登録
             form.save()
             # 一覧画面へリダイレクト
-            return redirect("game:list1")
+            return redirect("game:player_list1")
         else :
             # エラーがある場合、登録画面を再度表示
             context['form'] = form
@@ -94,7 +94,7 @@ class PlayerCreateView(CreateView) :
     # フォームクラス名
     form_class = PlayerForm
     # 登録成功時のリダイレクト先URL指定
-    success_url = reverse_lazy("game:list2")
+    success_url = reverse_lazy("game:player_list2")
     # テンプレートファイル名の指定
     template_name = "game/player/create2.html"
     
@@ -105,7 +105,7 @@ class PlayerCreateView(CreateView) :
         return context
 
 
-def update1(request, pk):
+def player_update1(request, pk):
     # 指定されたレコードを取得
     object =Player.objects.get(id=pk)
     
@@ -125,7 +125,7 @@ def update1(request, pk):
             # エラーがない場合、新規登録
             form.save()
             # 一覧画面へリダイレクト
-            return redirect("game:list1")
+            return redirect("game:player_list1")
         else :
             context["form"] = form
     return render(request, "game/player/update1.html", context)
@@ -137,7 +137,7 @@ class PlayerUpdateView(UpdateView) :
     # フォームクラス名
     form_class = PlayerForm
     # 登録成功時のリダイレクト先URL指定
-    success_url = reverse_lazy("game:list2")
+    success_url = reverse_lazy("game:player_list2")
     # テンプレートファイル名の指定
     template_name = "game/player/update2.html"
     
@@ -148,20 +148,20 @@ class PlayerUpdateView(UpdateView) :
         return context
 
 
-def delete1(request, pk) :
+def player_delete1(request, pk) :
     # 指定されたレコードを取得
     object = Player.objects.get(id=pk)
     # 指定されたオブジェクトを削除
     object.delete()
     # 一覧画面へリダイレクト
-    return redirect("game:list1")
+    return redirect("game:player_list1")
 
 
 class PlayerDeleteView(DeleteView) :
     # モデル名
     model = Player
     # 削除成功時のリダイレクト先URL指定
-    success_url = reverse_lazy("game:list2")
+    success_url = reverse_lazy("game:player_list2")
 
     def get(self, *args, **kwargs):
         # プライマリーキーの取得

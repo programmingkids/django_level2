@@ -11,10 +11,10 @@
     </div>
     
      <div class="mb-3">
-        <a href="{% url 'game:list2' %}" class="btn btn-primary">一覧に戻る</a>
+        <a href="{% url 'game:player_list2' %}" class="btn btn-primary">一覧に戻る</a>
     </div>
     
-    <form action="{% url 'game:update2' object.id %}" method="post" novalidate>
+    <form action="{% url 'game:player_update2' object.id %}" method="post" novalidate>
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit" class="btn btn-primary">送信</button>
