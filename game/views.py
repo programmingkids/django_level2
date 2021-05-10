@@ -148,3 +148,28 @@ class PlayerUpdateView(UpdateView) :
         return context
 
 
+def delete1(request, pk) :
+    # 指定されたレコードを取得
+    object = Player.objects.get(id=pk)
+    # 指定されたオブジェクトを削除
+    object.delete()
+    # 一覧画面へリダイレクト
+    return redirect("game:list1")
+
+
+class PlayerDeleteView(DeleteView) :
+    # モデル名
+    model = Player
+    # 削除成功時のリダイレクト先URL指定
+    success_url = reverse_lazy("game:list2")
+
+    def get(self, *args, **kwargs):
+        # プライマリーキーの取得
+        pk = self.kwargs.get("pk")
+        # 指定されたレコードを取得
+        object = Player.objects.get(id=pk)
+        # 指定されたオブジェクトを削除
+        object.delete()
+        # 一覧画面へリダイレクト
+        return redirect(self.success_url)
+

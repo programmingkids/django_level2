@@ -25,6 +25,7 @@
                 <th>誕生日</th>
                 <th>詳細</th>
                 <th>更新</th>
+                <th>削除</th>
             </tr>
         </thead>
         <tbody>
@@ -41,6 +42,9 @@
                 </td>
                 <td>
                     <a href="{% url 'game:update1' o.id %}">更新</a>
+                </td>
+                <td>
+                    <a href="{% url 'game:delete1' o.id %}">削除</a>
                 </td>
             </tr>
             {% endfor %}

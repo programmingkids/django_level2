@@ -12,4 +12,6 @@ urlpatterns = [
     path('player/create2', views.PlayerCreateView.as_view(), name="create2"),
     path('player/update1/<int:pk>', views.update1, name="update1"),
     path('player/update2/<int:pk>', views.PlayerUpdateView.as_view(), name="update2"),
+    path('player/delete1/<int:pk>', views.delete1, name="delete1"),
+    path('player/delete2/<int:pk>', views.PlayerDeleteView.as_view(), name="delete2"),
 ]
