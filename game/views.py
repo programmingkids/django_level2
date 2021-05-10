@@ -23,14 +23,14 @@ def list1(request) :
         "message" : "プレイヤーを一覧で表示します",
         "object_list" : object_list
     }
-    return render(request, "game/list1.html", context)
+    return render(request, "game/player/list1.html", context)
 
 
 class PlayerListView(ListView):
     # モデル名
     model = Player
     # テンプレートファイル名のパス
-    template_name = "game/list2.html"
+    template_name = "game/player/list2.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -48,14 +48,14 @@ def detail1(request, pk) :
         "message" : "1件のプレイヤーを表示します",
         "object" : object
     }
-    return render(request, "game/detail1.html", context)
+    return render(request, "game/player/detail1.html", context)
 
 
 class PlayerDetailView(DetailView) :
     # モデル名
     model = Player
     # テンプレートファイル名の指定
-    template_name = "game/detail2.html"
+    template_name = "game/player/detail2.html"
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -85,7 +85,7 @@ def create1(request) :
         else :
             # エラーがある場合、登録画面を再度表示
             context['form'] = form
-    return render(request, "game/create1.html", context)
+    return render(request, "game/player/create1.html", context)
 
 
 class PlayerCreateView(CreateView) :
@@ -96,7 +96,7 @@ class PlayerCreateView(CreateView) :
     # 登録成功時のリダイレクト先URL指定
     success_url = reverse_lazy("game:list2")
     # テンプレートファイル名の指定
-    template_name = "game/create2.html"
+    template_name = "game/player/create2.html"
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -128,7 +128,7 @@ def update1(request, pk):
             return redirect("game:list1")
         else :
             context["form"] = form
-    return render(request, "game/update1.html", context)
+    return render(request, "game/player/update1.html", context)
 
 
 class PlayerUpdateView(UpdateView) :
@@ -139,7 +139,7 @@ class PlayerUpdateView(UpdateView) :
     # 登録成功時のリダイレクト先URL指定
     success_url = reverse_lazy("game:list2")
     # テンプレートファイル名の指定
-    template_name = "game/update2.html"
+    template_name = "game/player/update2.html"
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
