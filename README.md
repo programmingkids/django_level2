@@ -11,6 +11,7 @@ Djangレベル1修了者
 * Pythonレベル3
 * Pythonレベル4
 * Djangoレベル1
+* SQLレベル1
 
 ## 目標
 * Djangoを初めて学ぶ人向けのカリキュラムです
