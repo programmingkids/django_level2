@@ -10,10 +10,6 @@
         {{message}}
     </div>
     
-    <div class="mb-3">
-        <a href="{% url 'game:player_create1'%}" class="btn btn-primary">新規作成</a>
-    </div>
-    
     <table class="table table-bordered table-hover">
         <thead class="thead-light">
             <tr>
@@ -23,9 +19,6 @@
                 <th>MP</th>
                 <th>職業</th>
                 <th>誕生日</th>
-                <th>詳細</th>
-                <th>更新</th>
-                <th>削除</th>
             </tr>
         </thead>
         <tbody>
@@ -37,15 +30,6 @@
                 <td>{{o.mp}}</td>
                 <td>{{o.get_job_display}}</td>
                 <td>{{o.birthday|date:'Y年m月d日'}}</td>
-                <td>
-                    <a href="{% url 'game:player_detail1' o.id %}">詳細</a>
-                </td>
-                <td>
-                    <a href="{% url 'game:player_update1' o.id %}">更新</a>
-                </td>
-                <td>
-                    <a href="{% url 'game:player_delete1' o.id %}">削除</a>
-                </td>
             </tr>
             {% endfor %}
         </tbody>
